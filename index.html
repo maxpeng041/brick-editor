@@ -18,25 +18,25 @@
         <button type="button" class="addButton" onclick="addBlock('var')" style="background-color:coral;margin-top:325px;">VARIABLE</button>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
     <script src="brick-editor.js"></script>
     <script>
+        // load monaco
         require.config({
             paths: {
                 'vs': '../node_modules/monaco-editor/min/vs'
             }
         });
         require(['vs/editor/editor.main'], start_brick_editor);
-    </script>
-    <!--Edit container alignment, border, size-->
-    <div id="container"></div>
-    <script src="bundle.js"></script>
-    <script>
+
+        // setup to load recast when ready
         var recast = null;
-        $(function () {
+        window.onload = function () {
             recast = require("recast");
-        });
+        };
     </script>
+    <script src="bundle.js"></script>
+
+    <div id="container"></div>
 </body>
 </html>
